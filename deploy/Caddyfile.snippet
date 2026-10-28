@@ -1,0 +1,15 @@
+# Append to the bind-mounted Caddyfile with an editor (never sed -i), then reload Caddy.
+einvoice.doaide.com {
+    handle /api/* {
+        reverse_proxy 172.18.0.1:3105
+    }
+    handle /sitemap.xml {
+        reverse_proxy 172.18.0.1:3105
+    }
+    handle /robots.txt {
+        reverse_proxy 172.18.0.1:3105
+    }
+    handle {
+        reverse_proxy 172.18.0.1:3106
+    }
+}

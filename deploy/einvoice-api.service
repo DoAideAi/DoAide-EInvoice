@@ -1,0 +1,16 @@
+[Unit]
+Description=DoAide E-Invoice API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/DoAide-EInvoice/backend
+EnvironmentFile=/opt/DoAide-EInvoice/backend/.env
+Environment=PORT=3105
+ExecStart=/opt/DoAide-EInvoice/backend/.venv/bin/uvicorn app.main:app --host 172.18.0.1 --port 3105
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

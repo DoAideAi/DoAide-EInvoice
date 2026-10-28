@@ -1,0 +1,14 @@
+[Unit]
+Description=DoAide E-Invoice Web
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/DoAide-EInvoice/frontend
+ExecStart=/usr/bin/npx serve dist -l tcp://172.18.0.1:3106 --no-clipboard
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
